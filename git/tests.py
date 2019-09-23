@@ -1,7 +1,7 @@
 import unittest
 import random
 
-from git.homework import (
+from base_types_exceptions_loops.homework import (
     is_two_object_has_same_value,
     is_two_objects_has_same_type,
     is_two_objects_is_the_same_objects,
@@ -100,7 +100,7 @@ class TestLoopExercises(unittest.TestCase):
     def test_some_loop_exercise(self):
 
         self.assertListEqual(some_loop_exercise(), [0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12])
-#
+
     def test_remove_from_list_all_negative_numbers(self):
         given_data = [1, 2, -9, 6, 7, 6, -19, -12]
         expected_result = [1, 2, 6, 7, 6]
@@ -140,8 +140,8 @@ class TestWords(unittest.TestCase):
             result = is_word_in_text(word, text)
             self.assertIsNotNone(result)
             self.assertFalse(result)
-#
-#
+
+
 class TestSimpleSort(unittest.TestCase):
 
     def test_simple_sort(self):
@@ -150,17 +150,18 @@ class TestSimpleSort(unittest.TestCase):
             expected_result = given_data.copy()
             expected_result.sort()
             self.assertListEqual(simple_sort(given_data), expected_result)
-#
-#
+
+
 class TestAlphabet(unittest.TestCase):
 
     def test_alphabet(self):
         expected = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j', 11: 'k', 12: 'l',
                     13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't', 21: 'u', 22: 'v', 23: 'w',
                     24: 'x', 25: 'y', 26: 'z'}
-        expected = {k:v for v,k in expected.items()}
         self.assertDictEqual(alphabet(), expected)
 
 
 if __name__ == "__main__":
     unittest.main()
+
+print("Done!")

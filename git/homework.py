@@ -141,7 +141,7 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    return {chr(k):(v+1) for v, k in enumerate(range(ord('a'),ord('z')+1))}
+    return {(v+1):chr(k) for v, k in enumerate(range(ord('a'),ord('z')+1))}
 
 
 def simple_sort(data: List[int]) -> List[list]:
