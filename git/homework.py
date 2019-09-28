@@ -48,10 +48,10 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    if (not isinstance(first_value,int)) or (not isinstance(second_value,int)):
+    if (not isinstance(first_value, int)) or (not isinstance(second_value, int)):
         raise ValueError
 
-    return first_value*second_value
+    return first_value * second_value
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
@@ -82,9 +82,9 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
         >>> "Not valid input data"
     """
     try:
-        return int(first_value)*int(second_value)
-    except:
-        raise(ValueError)
+        return int(first_value) * int(second_value)
+    except (TypeError, ValueError):
+        raise ValueError
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -112,9 +112,10 @@ def some_loop_exercise() -> list:
     """
     res = []
     for i in range(13):
-        if i not in (6,7):
+        if i not in (6, 7):
             res.append(i)
     return res
+
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
     """
@@ -127,7 +128,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
     """
     data_abs = [abs(x) for x in data]
     data_res = data[:]
-    for i,x in enumerate(data):
+    for i, x in enumerate(data):
         if x != data_abs[i]:
             data_res.remove(x)
     return data_res
@@ -136,15 +137,15 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
 def alphabet() -> dict:
     """
     Create dict which keys is alphabetic characters. And values their number in alphabet
-    Notes You could see an implementaion of this one in test, but create another one
+    Notes You could see an implementation of this one in test, but create another one
     Examples:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    return {(v+1):chr(k) for v, k in enumerate(range(ord('a'),ord('z')+1))}
+    return {(v + 1): chr(k) for v, k in enumerate(range(ord('a'), ord('z') + 1))}
 
 
-def simple_sort(data: List[int]) -> List[list]:
+def simple_sort(data: List[int]) -> List[int]:
     """
     Sort list of ints without using built-in methods.
     Examples:
@@ -153,8 +154,8 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    for i in range(len(data)-1):
-        for j in range(len(data)-i-1):
-            if data[j] > data[j+1]:
-                data[j], data[j+1] = data[j+1], data[j]
+    for i in range(len(data) - 1):
+        for j in range(len(data) - i - 1):
+            if data[j] > data[j + 1]:
+                data[j], data[j + 1] = data[j + 1], data[j]
     return data
