@@ -15,7 +15,8 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
     if data:
-        return [{k:(v if k != 'name' else v.capitalize()) for k,v in d.items()} for d in data]
+        return [{k: (v if k != 'name' else v.capitalize()) 
+                 for k, v in d.items()} for d in data]
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -26,8 +27,9 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    if data:    
-        return [{k:v for k,v in d.items() if k not in redundant_keys} for d in data]
+    if data:
+        return [{k: v for k, v in d.items() 
+                 if k not in redundant_keys} for d in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -38,7 +40,7 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         >>> [{'name': 'Alex', 'age': 26}]
     """
     if data:
-        return [d for d in data for k,v in d.items() if v == value]
+        return [d for d in data for k, v in d.items() if v == value]
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
@@ -54,11 +56,7 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     Find the longest string (first longest - ?)
     """
     if data:
-        data = [str(d) for d in data]
-        data_len = [len(d) for d in data]
-        d_min = sorted(data_len)[0]
-        idx_min = data_len.index(d_min)
-        return data[idx_min]
+        return min([str(d) for d in data], key=lambda x: len(str(x)))
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -68,8 +66,7 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
 
     """
     if data:
-        data = [d for d in data if d.get(key)]
-        return min(data, key=lambda x: x[key])
+        return min([d for d in data if d.get(key)], key=lambda x: x[key])
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
@@ -77,7 +74,7 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     Find max value from list of lists
     """
     if data:
-        return max(max(data))
+        return max(max(data, key=lambda x: max(x)))
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
@@ -117,10 +114,10 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
 
     yield 2
     for i in range(3, 200):
-        
-        for j in range(2,i):
+
+        for j in range(2, i):
             if i % j == 0:
                 break
             else:
                 if j == i-1:
-                	yield i
+                    yield i
