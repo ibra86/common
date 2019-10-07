@@ -1,6 +1,6 @@
 import unittest
 
-from testing.homework import Rectangle
+from homework import Rectangle
 
 
 class RectangleTestCases(unittest.TestCase):
@@ -57,6 +57,16 @@ class RectangleTestCases(unittest.TestCase):
         actual_result = rect.get_radius_of_circumscribed_circle()
         expected_result = 5
         self.assertEqual(actual_result, expected_result)
+
+    def test_get_radius_of_inscribed_circle(self):
+        rect = Rectangle(2, 2)
+        actual_result = rect.get_radius_of_inscribed_circle()
+        expected_result = 1
+        self.assertEqual(actual_result, expected_result)
+
+    def test_negative_get_radius_of_inscribed_circle(self):
+        rect = Rectangle(1, 2)
+        self.failUnlessRaises(ValueError, rect.get_radius_of_inscribed_circle)
 
 
 if __name__ == '__main__':
