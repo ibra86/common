@@ -1,4 +1,4 @@
-def common_elements_from_two_lists(a,b):
+def coded_task_01(a, b):
 	return list(set(a+b))
 
 def coded_task_02(s):
@@ -41,5 +41,59 @@ def coded_task_06(input_list):
 			return False
 
 	return True
-		
 
+
+def coded_task_07(input_list):
+    pass
+
+
+def coded_task_08(input_list):
+    pass
+
+
+def coded_task_09(input_list):
+    pass
+
+
+def coded_task_10(input_list):
+    pass
+
+
+def coded_task_11(input_list):
+    pass
+
+
+def coded_task_12(input_list):
+    pass
+
+
+def coded_task_13(input_list):
+    pass
+
+
+def coded_task_14(input_list):
+    pass
+
+
+def coded_task_15(input_list):
+    pass
+
+
+def coded_task_16(input_list):
+    pass
+
+
+def coded_task_17(input_list):
+    pass
+
+
+def coded_task_18(input_list):
+    pass
+
+
+def coded_task_19(input_list):
+    pass
+
+
+def coded_task_20(input_list):
+    pass
