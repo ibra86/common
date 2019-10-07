@@ -5,6 +5,8 @@ class Rectangle:
     def __init__(self, width, height):
         self.width = width
         self.height = height
+        if (width <= 0) or (height <= 0):
+            raise ValueError('width and height must be > 0')
 
     def get_rectangle_perimeter(self):
         """
