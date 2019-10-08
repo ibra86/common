@@ -1,6 +1,6 @@
 import unittest
 
-from homework import Rectangle
+from testing.homework import Rectangle
 
 
 class RectangleTestCases(unittest.TestCase):
@@ -15,7 +15,7 @@ class RectangleTestCases(unittest.TestCase):
 
     def test_rectangle_valid_values(self):
         a, b = 1, -1
-        self.failUnlessRaises(ValueError, Rectangle, a, b)
+        self.assertRaises(ValueError, Rectangle, a, b)
 
     def test_get_rectangle_perimeter_valid_values(self):
         rect = Rectangle(10, 11)
@@ -41,10 +41,7 @@ class RectangleTestCases(unittest.TestCase):
         number_of_corners_list = [-3, 0, 7, 'two']
         for n in number_of_corners_list:
             with self.subTest(n=n):
-                if not isinstance(n, int):
-                    self.failUnlessRaises(TypeError, rect.get_sum_of_corners, n)
-                else:
-                    self.failUnless((n <= 0) | (n > 4))
+                self.assertRaises((TypeError, ValueError), rect.get_sum_of_corners, n)
 
     def test_get_rectangle_diagonal(self):
         rect = Rectangle(3, 4)
