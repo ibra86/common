@@ -1,5 +1,6 @@
 from functools import reduce
 
+
 def coded_task_01(a, b):
     return list(set(a + b))
 
@@ -9,14 +10,6 @@ def coded_task_02(s):
 
 
 def coded_task_03(num):
-    # while True:
-    # 	if num % 3 == 0:
-    # 		num //= 3
-    # 		if num == 1:
-    # 			return True
-    # 	else:
-    # 		return False
-
     while (num % 3 == 0):
         num /= 3
     return num == 1
@@ -29,9 +22,6 @@ def coded_task_04(num):
         res = sum(digits_list(res))
     return res
 
-
-# while num >= 10:
-# 	num = sum(divmod(num,10))
 
 def coded_task_05(input_list):
     return [x for x in input_list if x != 0] + [x for x in input_list if x == 0]
