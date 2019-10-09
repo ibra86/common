@@ -34,7 +34,7 @@ class Testing(unittest.TestCase):
         s = "I am a good developer. I am also a writer"
         expected_result = 5
         actual_result = coded_task_02(s)
-        self.assertEqual(actual_result, expected_result)
+        self.assertEqual(expected_result, actual_result)
 
     def test_03(self):
         '''
@@ -66,7 +66,7 @@ class Testing(unittest.TestCase):
         expected_result = 3
         actual_result = coded_task_04(num)
 
-        self.assertEqual(actual_result, expected_result)
+        self.assertEqual(expected_result, actual_result)
 
     def test_05(self):
         '''
@@ -81,7 +81,7 @@ class Testing(unittest.TestCase):
         expected_result = [2, 3, 4, 6, 7, 10, 0]
         actual_result = coded_task_05(input_list)
 
-        self.assertEqual(actual_result, expected_result)
+        self.assertEqual(expected_result, actual_result)
 
     def test_06(self):
         """
@@ -110,7 +110,7 @@ class Testing(unittest.TestCase):
         input_list = [5, 3, 4, 3, 4]
         actual_result = coded_task_07(input_list)
         expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        self.assertEqual(expected_result, actual_result)
 
     def test_08(self):
         '''
@@ -123,7 +123,7 @@ class Testing(unittest.TestCase):
         input_list = [1, 2, 3, 4, 6, 7, 8]
         actual_result = coded_task_08(input_list)
         expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        self.assertEqual(expected_result, actual_result)
 
     def test_09(self):
         '''
@@ -134,10 +134,10 @@ class Testing(unittest.TestCase):
         Input: [1,2,3,(1,2),3]
         Output: 3
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
+        input_list = [1, 2, 3, (1, 2), 3]
         actual_result = coded_task_09(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        expected_result = 3
+        self.assertEqual(expected_result, actual_result)
 
     def test_10(self):
         '''
@@ -146,10 +146,10 @@ class Testing(unittest.TestCase):
         For example: if the input string is "Hello World and Coders" then your program should return the string
         "sredoC dna dlroW olleH".
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_10(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_string = "Hello World and Coders"
+        actual_result = coded_task_10(input_string)
+        expected_result = "sredoC dna dlroW olleH"
+        self.assertEqual(expected_result, actual_result)
 
     def test_11(self):
         '''
@@ -158,15 +158,17 @@ class Testing(unittest.TestCase):
         the parameter converts to (ie. if num = 63 then the output should be 1:3).
         Separate the number of hours and minutes with a colon.
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_11(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        num = 63
+        actual_result = coded_task_11(num)
+        expected_result = '1:3'
+        self.assertEqual(expected_result, actual_result)
 
     def test_12(self):
         '''
         Task 12:
-        Write a program that will take the parameter being passed and return the largest word in the string. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation.
+        Write a program that will take the parameter being passed and return the largest word in the string.
+        If there are two or more words that are the same length, return the first word from the string with that length.
+        Ignore punctuation.
 
         Sample Test Cases:
         Input:"fun&!! time"
@@ -175,10 +177,10 @@ class Testing(unittest.TestCase):
         Input:"I love dogs"
         Output:love
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_12(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_string = "fun&!! time"
+        actual_result = coded_task_12(input_string)
+        expected_result = "time"
+        self.assertEqual(expected_result, actual_result)
 
     def test_13(self):
         '''
@@ -190,24 +192,25 @@ class Testing(unittest.TestCase):
         Input: My name is Michele
         Outout: Michele is name My
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_13(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_string = "My name is Michele"
+        actual_result = coded_task_13(input_string)
+        expected_result = "Michele is name My"
+        self.assertEqual(expected_result, actual_result)
 
     def test_14(self):
         '''
         Task 14:
         Write a program that asks the user how many Fibonnaci numbers to generate and then generates them.
         Take this opportunity to think about how you can use functions. Make sure to ask the user to enter the number
-        of numbers in the sequence to generate.(Hint: The Fibonnaci seqence is a sequence of numbers where the next
+        of numbers in the sequence to generate.
+        (Hint: The Fibonnaci seqence is a sequence of numbers where the next
         number in the sequence is the sum of the previous two numbers in the sequence.
         The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_14(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        num_fib = 7
+        actual_result = coded_task_14(num_fib)
+        expected_result = [1, 1, 2, 3, 5, 8, 13]
+        self.assertEqual(expected_result, actual_result)
 
     def test_15(self):
         '''
@@ -216,21 +219,22 @@ class Testing(unittest.TestCase):
         Write one line of Python that takes this list a and makes a new list that has only the even elements of
         this list in it.
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
+        input_list = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
         actual_result = coded_task_15(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        expected_result = [1, 9, 25, 49, 81]
+        self.assertEqual(expected_result, actual_result)
 
     def test_16(self):
         '''
         Task 16:
-        Write a program that will add up all the numbers from 1 to input number. For example: if the input is 4 then
+        Write a program that will add up all the numbers from 1 to input number.
+        For example: if the input is 4 then
         your program should return 10 because 1 + 2 + 3 + 4 = 10.
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_16(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_num = 4
+        actual_result = coded_task_16(input_num)
+        expected_result = 10
+        self.assertEqual(expected_result, actual_result)
 
     def test_17(self):
         '''
@@ -238,40 +242,41 @@ class Testing(unittest.TestCase):
         Write a program that will take the parameter being passed and return the factorial of it.
         For example: if num = 4, then your program should return (4 * 3 * 2 * 1) = 24.
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_17(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_num = 4
+        actual_result = coded_task_17(input_num)
+        expected_result = 24
+        self.assertEqual(expected_result, actual_result)
 
     def test_18(self):
         '''
         Task 18:
         Write a program that will take the str parameter being passed and modify it using the following algorithm.
-        Replace every letter in the string with the letter following it in the alphabet (ie. cbecomes d, zbecomes a).
+        Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a).
         Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string.
 
         Input: abcd
         Output: bcdE
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_18(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_str = 'abcdz'
+        actual_result = coded_task_18(input_str)
+        expected_result = 'bcdEA'
+        self.assertEqual(expected_result, actual_result)
 
     def test_19(self):
         '''
         Task 19:
         Write a program that will take the str string parameter being passed and return the string with the letters in
-        alphabetical order (ie. hello becomes ehllo). Assume numbers and punctuation symbols will not be included in
-        the string.
+        alphabetical order
+        (ie. hello becomes ehllo).
+        Assume numbers and punctuation symbols will not be included in the string.
 
         Input: edcba
         Output: abcde
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_19(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        input_str = 'edcba'
+        actual_result = coded_task_19(input_str)
+        expected_result = 'abcde'
+        self.assertEqual(expected_result, actual_result)
 
     def test_20(self):
         '''
@@ -279,10 +284,20 @@ class Testing(unittest.TestCase):
         Write a program that will take both parameters being passed and return the true if num2 is greater than num1,
         otherwise return the false. If the parameter values are equal to each other then return the string -1
         '''
-        input_list = [1, 2, 3, 4, 6, 7, 8]
-        actual_result = coded_task_20(input_list)
-        expected_result = 5
-        self.assertEqual(actual_result, expected_result)
+        num1, num2 = 1, 2
+        actual_result = coded_task_20(num1, num2)
+        expected_result = True
+        self.assertEqual(expected_result, actual_result)
+
+        num1, num2 = 1, -2
+        actual_result = coded_task_20(num1, num2)
+        expected_result = False
+        self.assertEqual(expected_result, actual_result)
+
+        num1, num2 = 1, 1
+        actual_result = coded_task_20(num1, num2)
+        expected_result = '-1'
+        self.assertEqual(expected_result, actual_result)
 
 
 if __name__ == '__main__':
