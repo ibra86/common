@@ -1,3 +1,5 @@
+from functools import reduce
+
 def coded_task_01(a, b):
     return list(set(a + b))
 
@@ -94,9 +96,6 @@ def coded_task_15(input_list):
 
 def coded_task_16(input_num):
     return sum(x for x in range(1, input_num + 1))
-
-
-from functools import reduce
 
 
 def coded_task_17(input_num):
