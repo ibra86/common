@@ -1,6 +1,6 @@
 import pytest
 
-from homework import Cat, Cheetah, House
+from oop.homework import Cat, Cheetah, House
 
 
 @pytest.mark.parametrize("age, food, result", [
@@ -65,7 +65,7 @@ def test_cat_run(age, hours, result):
 
 @pytest.mark.parametrize("age, hours, result", [
     (1, 1, 35),
-    (7, 4, "Your cat is died :("),
+    (7, 4, "Your cat is dead :("),
     (16, 1, 45)
 ])
 def test_cat_run(age, hours, result):
