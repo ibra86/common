@@ -10,7 +10,7 @@ def coded_task_02(s):
 
 
 def coded_task_03(num):
-    while (num % 3 == 0):
+    while num % 3 == 0:
         num /= 3
     return num == 1
 
