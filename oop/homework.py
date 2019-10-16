@@ -53,24 +53,32 @@ class Cat:
         self.saturation_level = max(self.saturation_level, 0)
 
     def eat(self, product):
-        products_sat_lvls = [('fodder', 10), ('apple', 5), ('milk', 2)]
-        found_val = [(p, s) for (p, s) in products_sat_lvls if p == product]
-        if found_val:
-            _, sat_lvl = found_val[0]
-            self._increase_saturation_level(sat_lvl)
+        products_sat_lvls = {'fodder': 10, 'apple': 5, 'milk': 2}
+        sat_lvl = products_sat_lvls.get(product, 0)
+        self._increase_saturation_level(sat_lvl)
 
     def _set_average_speed(self):
-        average_speed = 12 if self.age <= 7 else 9 if self.age <= 10 else 6
-        self.average_speed = average_speed
+        if self.age <= 7:
+            average_speed = 12
+        elif self.age <= 10:
+            average_speed = 9
+        else:
+            average_speed = 6
         return average_speed
 
     def run(self, hours):
         run_km = self.average_speed * hours
-        reduce_sat_lvl_val = 2 if run_km <= 25 else \
-            5 if run_km <= 50 else \
-                15 if run_km <= 100 else \
-                    25 if run_km <= 200 else \
-                        50
+
+        if run_km <= 25:
+            reduce_sat_lvl_val = 2
+        elif run_km <= 50:
+            reduce_sat_lvl_val = 5
+        elif run_km <= 100:
+            reduce_sat_lvl_val = 15
+        elif run_km <= 200:
+            reduce_sat_lvl_val = 25
+        else:
+            reduce_sat_lvl_val = 50
         self._reduce_saturation_level(reduce_sat_lvl_val)
 
         return f"Your cat ran {run_km} kilometers"
@@ -101,15 +109,17 @@ class Cheetah(Cat):
     """
 
     def eat(self, product):
-        products_sat_lvls = [('gazelle', 30), ('rabbit', 15)]
-        found_val = [(p, s) for (p, s) in products_sat_lvls if p == product]
-        if found_val:
-            _, sat_lvl = found_val[0]
-            self._increase_saturation_level(sat_lvl)
+        products_sat_lvls = {'gazelle': 30, 'rabbit': 15}
+        sat_lvl = products_sat_lvls.get(product, 0)
+        self._increase_saturation_level(sat_lvl)
 
     def _set_average_speed(self):
-        average_speed = 90 if self.age <= 5 else 75 if self.age <= 15 else 40
-        self.average_speed = average_speed
+        if self.age <= 5:
+            average_speed = 90
+        elif self.age <= 15:
+            average_speed = 75
+        else:
+            average_speed = 40
         return average_speed
 
 
