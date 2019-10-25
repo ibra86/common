@@ -3,7 +3,7 @@ from unittest import mock
 
 import testfixtures
 
-from main import pay_developer
+from additional.logging_overview.main import pay_developer
 
 
 class TestDevelopersSalary(unittest.TestCase):
