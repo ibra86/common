@@ -1,1 +1,13 @@
 {% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h2 class="display-1">
+	Vegetables
+</h2>
+<div class="list-group">
+	{% for var in vars %}
+<a href="#" class="list-group-item list-group-item-action">{{var}}</a>
+	{% endfor %}
+</div>
+</div>
+{% endblock %}
