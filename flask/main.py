@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
     vegetables_tmpl = 'vegetables.html'
     fruits_tmpl = 'fruits.html'
-    return render_template('home.html')#, vegetables_tmpl, fruits_tmpl)
+    return render_template('home.html')
 
 
 @app.route('/vegetables')
