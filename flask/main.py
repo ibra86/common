@@ -5,19 +5,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    vegetables_tmpl = 'vegetables.html'
-    fruits_tmpl = 'fruits.html'
     return render_template('home.html')
 
 
 @app.route('/vegetables')
-def vegetables(vars=['beans', 'carrot', 'beetroot', 'cucumber']):
-    return render_template('vegetables.html', vars=vars)
+def vegetables():
+	var_list = ['beans', 'carrot', 'beetroot', 'cucumber']
+	return render_template('vegetables.html', var_list=var_list)
+
 
 
 @app.route('/fruits')
-def fruits(vars=['melon', 'apple', 'strawberry', 'grape']):
-    return render_template('fruits.html', vars=vars)
+def fruits():
+	var_list=['melon', 'apple', 'strawberry', 'grape']
+	return render_template('fruits.html', var_list=var_list)
 
 
 if __name__ == '__main__':
