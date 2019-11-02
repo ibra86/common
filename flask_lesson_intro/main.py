@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_home_page():
-    return render_template("home.html", data=get_data())
+    # return render_template("home.html", data=get_data())
+    return render_template("alarm-clock.html", data=get_data())
 
 
 if __name__ == "__main__":
