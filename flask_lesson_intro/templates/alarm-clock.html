@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+
 {% block content %}
     <div class="container">
+
         <h2 class="display-1">
             Alarm clock
         </h2>
         <div class="entity">
-            <img class="img-responsive" src={{ url_for("static", filename="alarm-clock.jpp" }} alt="Alarm-clock">
-            "{{ url_for('static', filename='ayrton_senna_movie_wallpaper_by_bashgfx-d4cm6x6.jpg') }}"
+            <img class="img-fluid cust-size" src="{{ url_for("static", filename='alarm-clock1.jpg') }}" alt="Alarm-clock">
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+        <h1 class="display-4">
+            {{ entity|capitalize|replace("-"," ") }}
+        </h1>
+        <div class="entity">
+            <img class="img-fluid img-thumbnail cust-size" src="{{ url_for('static', filename=entity+".png") }}" alt="{{ entity }}">
+            <br/>
+            <div class="text-muted">{{ entity_description }}</div>
+        </div>
+    </div>
+{% endblock %}
