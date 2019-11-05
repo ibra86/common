@@ -1,5 +1,3 @@
-import json
-
 from flask import Flask, render_template
 
 from flask_lesson_intro.utils import get_data
@@ -9,6 +7,7 @@ app = Flask(__name__)
 data = get_data()
 entity_list = [d.get('title') for d in data]
 
+
 @app.route('/')
 def get_home_page():
     return render_template("home.html", entity_list=entity_list)
@@ -16,7 +15,6 @@ def get_home_page():
 
 @app.route('/<entity>')
 def get_entity_page(entity):
-    # return render_template("%s.html" % entity, entity_list=entity_list)
     entity_description = [d.get('text') for d in data for k, v in d.items() if (
             k == 'title' and v.lower().replace(' ', '-') == entity)]
     entity_description = next(iter(entity_description), None)

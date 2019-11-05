@@ -7,9 +7,15 @@
             {{ entity|capitalize|replace("-"," ") }}
         </h1>
         <div class="entity">
-            <img class="img-fluid img-thumbnail cust-size" src="{{ url_for('static', filename=entity+".png") }}" alt="{{ entity }}">
-            <br/>
+            <img class="img-fluid img-thumbnail cust-size" src="{{ url_for('static', filename=entity+".png") }}"
+                 alt="{{ entity }}">
+
             <div class="text-muted">{{ entity_description }}</div>
+            <div class="d-flex" style="padding-bottom: 20px; padding-top: 20px">
+                <hr class="my-auto flex-grow-1">
+                <div class="px-4">description block of {{ entity_description|wordcount }} words</div>
+                <hr class="my-auto flex-grow-1">
+            </div>
         </div>
     </div>
 {% endblock %}
