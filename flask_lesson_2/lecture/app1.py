@@ -1,6 +1,6 @@
-from flask import Flask, request, render_template, make_response, jsonify, session, url_for
-from werkzeug.utils import secure_filename, redirect
-from blueprint.main import vegetable
+from flask import Flask, request, render_template, make_response, jsonify, session
+from lecture.blueprint.main1 import vegetable
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 import os
