@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <h4 class="display-4">
+            Welcome
+        </h4>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action"
+               href="{{ url_for('products.get_all_products') }}">Products</a>
+            <a class=" list-group-item list-group-item-action" href="/all-supermarkets">Supermarkets</a>
+        </div>
+    </div>
+
+{% endblock %}

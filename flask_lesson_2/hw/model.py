@@ -1,10 +1,10 @@
-class 3s2wszProduct:
-    def __init__(self, id_, name, description, img_name, price):
+class Product:
+    def __init__(self, id_, name, description, price, img_name):
         self.id_ = id_
         self.name = name
         self.description = description
-        self.img_name = img_name
         self.price = price
+        self.img_name = img_name
 
 
 class Supermarket:
