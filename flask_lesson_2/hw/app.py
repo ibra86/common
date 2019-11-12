@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 
-from routes.products.products_route import products
+from routes.products.route import products
+from routes.products.route import supermarkets
 
 app = Flask(__name__)
 app.register_blueprint(products)
+app.register_blueprint(supermarkets)
 
 import os
 
@@ -11,8 +13,6 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 root_dir = os.path.join(app.root_path)
-
-all_products = []
 
 @app.route('/')
 @app.route('/home')

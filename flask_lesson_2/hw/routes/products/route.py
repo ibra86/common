@@ -11,7 +11,7 @@ products = Blueprint('products', __name__, template_folder='templates', static_f
 @products.route('/product')
 def get_all_products():
     session['1'] = True
-    return render_template('all_products.html', var_list=all_products)
+    return render_template('all_supermarkets.html', var_list=all_products)
 
 
 from .form import AddProductForm
@@ -44,13 +44,13 @@ def post_add_product():
         # f.save('/f.jpg')
         return redirect(url_for('products.get_all_products'))
     print('non validated')
-    return render_template('add_product.html', form=form)
+    return render_template('add_supermarket.html', form=form)
 
 
 @products.route('/add-product')
 def get_add_product():
     form = AddProductForm()
-    return render_template('add_product.html', form=form)
+    return render_template('add_supermarket.html', form=form)
 
 
 @products.route('/product/<int:id_>')
@@ -58,4 +58,4 @@ def get_product(id_):
     var_list = [p for p in all_products if p.get('id_') == id_]
     sess_product_id = str(var_list[0].get('id_'))
     session[sess_product_id] = True
-    return render_template('all_products.html', var_list=var_list)
+    return render_template('all_supermarkets.html', var_list=var_list)
