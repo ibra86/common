@@ -1,8 +1,8 @@
 from flask import Flask
-from flask_restful import Api, Resource
+from flask_restful import Api
 
-from src.config import run_config
-from src.routes.room import RoomView
+from config import run_config
+from routes.room import RoomView
 
 app = Flask(__name__)
 api = Api(app)
