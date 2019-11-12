@@ -29,3 +29,9 @@
 .clickable-row {
     cursor: pointer;
 }
+
+.cust-size {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 5px;
+}

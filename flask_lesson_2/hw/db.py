@@ -1,9 +1,17 @@
 all_products = []
 all_supermarkets = []
 
-# product_stub = {'id_': 1,
-#                 'name': 'asdf',
-#                 'description': 'asdfsadfafas',
-#                 'price': 123,
-#                 'img_name': 'Screen_Shot_2019-09-10_at_10.27.00.png'}
-# all_products.append(product_stub)
+product_default = {'id_': 1,
+                   'name': 'Ananas',
+                   'description': 'Default product',
+                   'price': 10,
+                   'img_name': 'ananas.jpg'}
+
+supermarket_default = {'id_': 1,
+                       'name': 'ATB',
+                       'location': 'Default supermarket',
+                       'img_name': 'atb.jpg'
+                       }
+
+all_products.append(product_default)
+all_supermarkets.append(supermarket_default)

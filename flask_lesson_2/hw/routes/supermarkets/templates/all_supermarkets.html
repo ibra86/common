@@ -6,7 +6,7 @@
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Products</h3>
+                    <h3 class="panel-title">Supermarkets</h3>
                 </div>
 
 
@@ -15,8 +15,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Location</th>
                         <th scope="col">Image file</th>
                     </tr>
                     </thead>
@@ -25,14 +24,14 @@
                         {% if session[var['id_']|string] %}
                             <tr>
                                 {% else %}
-                            <tr class='clickable-row' data-href="{{ url_for('products.get_product', id_=var.id_) }}">
+                            <tr class='clickable-row'
+                                data-href="{{ url_for('supermarkets.get_supermarket', id_=var.id_) }}">
                         {% endif %}
                     <th scope="row">{{ var.id_ }}</th>
                     <td>{{ var.name }}</td>
-                    <td>{{ var.description }}</td>
-                    <td>{{ var.price }}</td>
-                    <td><img src="{{ url_for('products.static', filename= 'img/' + var.img_name) }}"/></td>
-                    {#                    <td>{{url_for('products.static', filename= 'img/' + var.img_name) }}</td>#}
+                    <td>{{ var.location }}</td>
+                    <td><img class="img-fluid img-thumbnail cust-size"
+                             src="{{ url_for('supermarkets.static', filename= 'img/' + var.img_name) }}"/></td>
                     </tr>
                     {% endfor %}
 

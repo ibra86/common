@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown dmenu">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -24,8 +24,8 @@
                     Supermarkets
                 </a>
                 <div class="dropdown-menu sm-menu">
-                    <a class="dropdown-item" href="#">All supermarkets list</a>
-                    <a class="dropdown-item" href="#">Add new supermarket</a>
+                    <a class="dropdown-item" href="{{ url_for('supermarkets.get_all_supermarkets') }}">All supermarkets list</a>
+                    <a class="dropdown-item" href="{{ url_for('supermarkets.get_add_supermarket') }}">Add new supermarket</a>
                 </div>
             </li>
         </ul>

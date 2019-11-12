@@ -31,8 +31,8 @@
                     <td>{{ var.name }}</td>
                     <td>{{ var.description }}</td>
                     <td>{{ var.price }}</td>
-                    <td><img src="{{ url_for('products.static', filename= 'img/' + var.img_name) }}"/></td>
-                    {#                    <td>{{url_for('products.static', filename= 'img/' + var.img_name) }}</td>#}
+                    <td><img class="img-fluid img-thumbnail cust-size"
+                             src="{{ url_for('products.static', filename= 'img/' + var.img_name) }}"/></td>
                     </tr>
                     {% endfor %}
 
