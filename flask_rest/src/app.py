@@ -1,15 +1,16 @@
 from flask import Flask
-from flask_restful import Api
 
-from config import run_config
-from routes.room import RoomView
+# from routes.room import RoomView
+from routes.room import room
 
-app = Flask(__name__)
-api = Api(app)
 
-app.config.from_object(run_config())
+def create_app():
+    app = Flask(__name__)
+    # api = Api(app)
 
-api.add_resource(RoomView, '/room/<int:number>')
+    app.register_blueprint(room)
+    # app.config.from_object(run_config())
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    # api.add_resource(RoomView, '/room/<int:number>')
+
+    return app

@@ -1,10 +1,9 @@
-from flask_restful import Resource, fields, marshal_with
+from flask_restful import Resource, fields
 
 resource_fields = {'number': fields.Integer,
                    'level': fields.Integer,
                    'status': fields.String,
                    'price': fields.Float}
-
 
 # class TodoDao(object):
 #     def __init__(self, todo_id, task):
@@ -18,12 +17,20 @@ resource_fields = {'number': fields.Integer,
 #     def get(self, **kwargs):
 #         return TodoDao(todo_id='my_todo', task='Remember the milk')
 
-class RoomView(Resource):
-    def get(self, number):
-        if number:
-            pass
+from flask_restful import reqparse
 
-    def post(self, number):
+parser = reqparse.RequestParser()
+parser.add_argument('filter')
+
+args = parser.parse_args()
+
+
+class RoomView(Resource):
+    def get(self, number=None):
+        args = parser.parse_args()
+        return args
+
+    def post(self):
         pass
 
     def delete(self, number):
