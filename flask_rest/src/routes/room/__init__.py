@@ -7,4 +7,4 @@ room = Blueprint('room', __name__)
 api = Api(room)
 
 # api.add_resource(RoomView, '/room', '/room/<number>')
-api.add_resource(RoomView, '/room', '/room/<int:number>')
+api.add_resource(RoomView, '/', '/room', '/room/<int:number>')

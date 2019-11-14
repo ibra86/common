@@ -22,8 +22,6 @@ from flask_restful import reqparse
 parser = reqparse.RequestParser()
 parser.add_argument('filter')
 
-args = parser.parse_args()
-
 
 class RoomView(Resource):
     def get(self, number=None):
