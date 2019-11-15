@@ -1,15 +1,19 @@
 from flask import Flask, jsonify
 from werkzeug.exceptions import HTTPException
 
+from config import run_config
 from routes.room import room
+from routes.stuff import stuff
+from routes.tenant import tenant
 
 
 def create_app():
     app = Flask(__name__)
-    # api = Api(app)
 
     app.register_blueprint(room)
-    # app.config.from_object(run_config())
+    app.register_blueprint(tenant)
+    app.register_blueprint(stuff)
+    app.config.from_object(run_config())
 
     @app.errorhandler(404)
     def page_not_found(e):

@@ -12,7 +12,7 @@ class Tenant:
         self.passport_id = passport_id
         self.age = age
         self.sex = sex
-        self.address = address  # Address(city, street) use Nested
+        self.address = address
         self.room_number = room_number
 
 
