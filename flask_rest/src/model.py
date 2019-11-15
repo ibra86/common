@@ -1,4 +1,4 @@
-class Rooms:
+class Room:
     def __init__(self, number, level, status, price):
         self.number = number
         self.level = level
@@ -6,7 +6,7 @@ class Rooms:
         self.price = price
 
 
-class Tenants:
+class Tenant:
     def __init__(self, name, passport_id, age, sex, address, room_number):
         self.name = name
         self.passport_id = passport_id
