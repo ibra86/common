@@ -22,3 +22,20 @@ connect db to app
 one-to-one
 one-to-many
 many-to-many
+
+
++pycryptodom
+
+import base64
+from flask_restful.utils.crypto import encrypt, decrypt
+# encrypt(new_bookmark, key, seed)
+#
+# def decrypt(w):
+#     return base64.b64encode(w.encode('utf-8'))
+#
+#
+# def encrypt(w):
+#     return base64.b64decode(w).decode('utf-8')
+key = b'0123456789abcdef0123456789abcdef'
+seed = b'0123456789abcdef'
+print(decrypt(b'very_secret_password', key=key, seed=seed))

@@ -1,8 +1,14 @@
 import os
 
+from flask_restful.utils.crypto import encrypt
+
 
 class Config:
-    pass
+    DATABASE = {
+        "database": "flask_practice",
+        "user": "aibragimov",
+        "password": encrypt("dmVyeV9zZWNyZXRfcGFzc3dvcmQ=")
+    }
 
 
 class TestConfig(Config):
