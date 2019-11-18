@@ -1,0 +1,24 @@
+WIN:
+pg_ctl -D "C:\Program Files\PostgreSQL\11\data" start
+
+
+\l : list of available databases
+\du : list of users
+\q : quit
+
+
+psql -h localhost -U postgres -p 5433
+postgres=# create database flask_practice;
+postgres=# create user aibragimov with encrypted password '...';
+postgres=# grant all privileges on database flask_practice to aibragimov;
+postgres=# ALTER USER aibragimov WITH SUPERUSER;
+postgres=# \q;
+
+
+set up postgres db
+add data
+create migrations
+connect db to app
+one-to-one
+one-to-many
+many-to-many
