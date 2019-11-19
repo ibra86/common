@@ -1,8 +1,13 @@
-# import db
+from db import db
 
 
-class Room(db.Model):
+class RoomModel(db.Model):
     __tablename__ = 'room_table'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    number = db.Column(db.Integer, unique=True, nullable=False)
+    level = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.String(20), default='available', nullable=False)
+    price = db.Column(db.Integer, nullable=False)
 
 # class Room:
 #     def __init__(self, number, level, status, price):

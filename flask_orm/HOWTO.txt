@@ -1,5 +1,10 @@
+CHEAT-SHEET:
+https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546
+
+
 WIN:
 pg_ctl -D "C:\Program Files\PostgreSQL\11\data" start
+psql -h localhost -d flask_practice -U aibragimov -p 5433
 LINUX:
 sudo service postgresql start
 sudo passwd postgres
@@ -9,12 +14,14 @@ ALTER USER postgres PASSWORD 'MyNewPassword';
 
 \l : list of available databases
 \du : list of users
+\dt : list of tables
 \q : quit
 
 
 psql -h localhost -U postgres -p 5433
 postgres=# create database flask_practice;
 postgres=# create user aibragimov with encrypted password '...';
+(postgres=# ALTER USER aibragimov WITH PASSWORD 'password';)
 postgres=# grant all privileges on database flask_practice to aibragimov;
 postgres=# ALTER USER aibragimov WITH SUPERUSER;
 postgres=# \q;
