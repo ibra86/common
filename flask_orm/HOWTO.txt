@@ -1,5 +1,10 @@
 WIN:
 pg_ctl -D "C:\Program Files\PostgreSQL\11\data" start
+LINUX:
+sudo service postgresql start
+sudo passwd postgres
+su postgres
+ALTER USER postgres PASSWORD 'MyNewPassword';
 
 
 \l : list of available databases
