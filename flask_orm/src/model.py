@@ -9,27 +9,22 @@ class RoomModel(db.Model):
     status = db.Column(db.String(20), default='available', nullable=False)
     price = db.Column(db.Integer, nullable=False)
 
-# class Room:
-#     def __init__(self, number, level, status, price):
-#         self.number = number
-#         self.level = level
-#         self.status = status
-#         self.price = price
+
+class TenantModel(db.Model):
+    __tablename__ = 'tenant_table'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+    passport_id = db.Column(db.String(10), unique=True, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    sex = db.Column(db.String(10), nullable=False)
+    address = db.Column(db.JSON(50), nullable=False)
+    room_number = db.Column(db.String(50), nullable=False)
 
 
-# class Tenant:
-#     def __init__(self, name, passport_id, age, sex, address, room_number):
-#         self.name = name
-#         self.passport_id = passport_id
-#         self.age = age
-#         self.sex = sex
-#         self.address = address
-#         self.room_number = room_number
-#
-#
-# class Stuff:
-#     def __init__(self, name, passport_id, position, salary):
-#         self.name = name
-#         self.passport_id = passport_id
-#         self.position = position
-#         self.salary = salary
+class StuffModel(db.Model):
+    __tablename__ = 'stuff_table'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
+    passport_id = db.Column(db.String(10), unique=True, nullable=False)
+    position = db.Column(db.String(50), nullable=False)
+    salary = db.Column(db.Integer, nullable=False)
