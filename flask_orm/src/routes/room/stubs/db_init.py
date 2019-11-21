@@ -1,4 +1,3 @@
-from db import db
 from model import RoomModel
 
 records = [
@@ -11,7 +10,8 @@ records = [
 
 
 def db_init_room(db):
-    for record in records:
-        db.session.add(record)
+    if not RoomModel.query.all():  # if not empty add stubs
+        for record in records:
+            db.session.add(record)
 
     return db.session
