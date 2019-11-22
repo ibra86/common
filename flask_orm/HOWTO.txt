@@ -20,34 +20,11 @@ ALTER USER postgres PASSWORD 'MyNewPassword';
 
 psql -h localhost -U postgres -p 5433
 postgres=# create database flask_practice;
-postgres=# create user aibragimov with encrypted password '...';
+postgres=# create user aibragimov with encrypted password 'password';
 (postgres=# ALTER USER aibragimov WITH PASSWORD 'password';)
 postgres=# grant all privileges on database flask_practice to aibragimov;
 postgres=# ALTER USER aibragimov WITH SUPERUSER;
 postgres=# \q;
 
-
-set up postgres db
-add data
-create migrations
-connect db to app
-one-to-one
-one-to-many
-many-to-many
-
-
-+pycryptodom
-
-import base64
-from flask_restful.utils.crypto import encrypt, decrypt
-# encrypt(new_bookmark, key, seed)
-#
-# def decrypt(w):
-#     return base64.b64encode(w.encode('utf-8'))
-#
-#
-# def encrypt(w):
-#     return base64.b64decode(w).decode('utf-8')
-key = b'0123456789abcdef0123456789abcdef'
-seed = b'0123456789abcdef'
-print(decrypt(b'very_secret_password', key=key, seed=seed))
+Room-Tenant: one-many
+Room-Stuff: many-many
