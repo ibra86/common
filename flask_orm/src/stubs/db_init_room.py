@@ -9,6 +9,7 @@ records = [
     RoomModel(number=150, level=1, price=100),
 ]
 
+
 def db_init_room(db):
     if not RoomModel.query.all():  # if not empty add stubs
         for record in records:

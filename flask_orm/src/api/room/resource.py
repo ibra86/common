@@ -13,6 +13,7 @@ parser.add_argument('filter', type=str, default='all',
 
 Model = RoomModel
 
+
 class RoomView(Resource):
 
     @marshal_with(fields_structure)
@@ -29,7 +30,6 @@ class RoomView(Resource):
             else:
                 return Model.query.all()
 
-    #
     def post(self):
         data = request.get_json()
 
@@ -40,7 +40,6 @@ class RoomView(Resource):
             return "object is added", 201
         return "object is already in DB", 200
 
-    #
     def patch(self, number=None):
         data = request.get_json()
         if number:
@@ -48,11 +47,12 @@ class RoomView(Resource):
             db.session.commit()
             return "object is patched if existed", 201
         return "no object has been patched", 200
-#
+
     def delete(self, number):
 
         if number:
             Model.query.filter_by(number=number).delete()
             db.session.commit()
             return "object is deleted if existed", 200
+
         return "no object has been deleted", 200

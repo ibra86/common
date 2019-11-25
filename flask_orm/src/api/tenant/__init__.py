@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Api
 
-from routes.tenant.resource import TenantView
+from api.tenant.resource import TenantView
 
 tenant = Blueprint('tenant', __name__)
 api = Api(tenant)

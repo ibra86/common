@@ -1,7 +1,8 @@
 from flask_restful import fields
 
 fields_structure = {'id': fields.Integer,
-                    'number': fields.Integer,
-                    'level': fields.Integer,
-                    'status': fields.String,
-                    'price': fields.Float}
+                    'name': fields.String,
+                    'passport_id': fields.String,
+                    'position': fields.Integer,
+                    'salary': fields.Integer,
+                    }

@@ -1,6 +1,6 @@
-from api.stubs import db_init_stuff, db_init_room
-
 from itertools import product
+
+from stubs import db_init_stuff, db_init_room
 
 
 def db_init_stuff_to_room(db):

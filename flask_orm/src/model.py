@@ -1,15 +1,16 @@
+from sqlalchemy import Integer, Sequence
+
 from db import db
 
 
 class RoomModel(db.Model):
     __tablename__ = 'room_table'
-    id = db.Column(db.Integer, autoincrement=True)
+    id = db.Column(Integer, Sequence('room_id', start=1, increment=1))
     number = db.Column(db.Integer, primary_key=True, nullable=False)
     level = db.Column(db.Integer, nullable=False)
     status = db.Column(db.String(20), default='available', nullable=False)
     price = db.Column(db.Integer, nullable=False)
     tenants = db.relationship('TenantModel', backref='room')
-    # tenant_id = db.Column(db.Integer, db.ForeignKey('tenant_table.id'))
 
 
 class TenantModel(db.Model):
@@ -21,7 +22,6 @@ class TenantModel(db.Model):
     sex = db.Column(db.String(10), nullable=False)
     address = db.Column(db.JSON, nullable=False)
     room_number = db.Column(db.Integer, db.ForeignKey('room_table.number'))
-    # room_number = db.relationship('RoomModel', backref='tenant')
 
 
 stuff_to_room = db.Table('stuff_to_room',
