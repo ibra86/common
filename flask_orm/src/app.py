@@ -1,11 +1,14 @@
-from api.root import healthcheck
 from flask import Flask
 
-from config import run_config
-from db import db
 from api.error.template import page_not_found
 from api.room import room
+from api.root import healthcheck
 from api.stubs.db_init_room import db_init_room
+from api.stubs.db_init_stuff import db_init_stuff
+from api.stubs.db_init_stuff_to_room import db_init_stuff_to_room
+from api.stubs.db_init_tenant import db_init_tenant
+from config import run_config
+from db import db
 
 
 def create_app():
@@ -18,6 +21,11 @@ def create_app():
         db.drop_all(app=app)
         db.create_all(app=app)
         db.session = db_init_room(db)
+
+        # db.session = db_init_stuff_to_room(db)
+        db.session = db_init_stuff(db)
+        db.session = db_init_tenant(db)
+        db.session = db_init_stuff_to_room(db)
         db.session.commit()
 
     app.register_blueprint(healthcheck)
