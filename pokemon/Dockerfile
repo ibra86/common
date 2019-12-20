@@ -6,8 +6,8 @@ COPY ./manage.py /app
 
 WORKDIR /app
 
-#RUN ls -la #hack
+RUN ls -la #hack
 
 EXPOSE 8000
 
-RUN python manage.py runserver 0:8000
+CMD python manage.py runserver 0:8000

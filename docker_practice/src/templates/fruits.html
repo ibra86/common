@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h2 class="display-1">
+            Fruits
+        </h2>
+        <div class="list-group">
+            {% for var in var_list %}
+                <a class="list-group-item list-group-item-action" id={{ var }}>{{ var }}</a>
+            {% endfor %}
+            <style>
+                #strawberry {
+                    color: red;
+                }
+            </style>
+        </div>
+    </div>
+{% endblock %}
