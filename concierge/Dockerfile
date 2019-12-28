@@ -6,7 +6,7 @@ COPY . /app
 
 WORKDIR /app
 
-RUN ls -la
+#RUN ls -la
 
 EXPOSE 8000
 

@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 # from .views import healthcheck
-from .views import health_check
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('healthcheck/', health_check, name='health_check'),
+    path(route='healthcheck/', view=views.health_check, name='health_check'),
+    path('', views.index, name='index'),
+    path('pokemon/', views.pokemon, name='pokemon'),
 ]
