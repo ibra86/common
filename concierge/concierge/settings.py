@@ -13,8 +13,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from django.core.exceptions import ImproperlyConfigured
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -75,14 +76,22 @@ WSGI_APPLICATION = 'concierge.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+def get_env_value(env_variable):
+    try:
+        return os.environ[env_variable]
+    except KeyError:
+        error_msg = f'Set the {env_variable} environment variable'
+        raise ImproperlyConfigured(error_msg)
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
+        'HOST': get_env_value('DATABASE_HOST'),
         'USER': 'django',
         'PASSWORD': 'django',
         'NAME': 'concierge',
-        'PORT': '5431',
+        'PORT': get_env_value('DATABASE_PORT'),
     }
 }
 # DATABASES = {
