@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-<h1>{{ title }}</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <h4 class="display-4">
+            Concierge
+        </h4>
+        <br>
+        <div class="list-group">
+
+            ` <h1><a href="{% url 'person-list' %}">Person</a></h1>
+            {% for object in person_objects %}
+                <a class=" list-group-item list-group-item-action"
+                   href="{% url 'person-detail' pk=object.id %}">
+                    <li>{{ object }} </li>
+                </a>
+                {% empty %}
+                <li>No person yet.</li>
+            {% endfor %}`
+
+            <h2><a href="#">Apartment</a></h2>
+            {% for object in apartment_objects %}
+                <a class="list-group-item list-group-item-action"
+                   href="#">
+                    <li>{{ object }} </li>
+                </a>
+                {% empty %}
+                <li>No apartment yet.</li>
+            {% endfor %}
+
+            ` <h1><a href="#">Key</a></h1>
+            {% for object in key_objects %}
+                <a class=" list-group-item list-group-item-action"
+                   href="#">
+                    <li>{{ object }} </li>
+                </a>
+                {% empty %}
+                <li>No key yet.</li>
+            {% endfor %}`
+
+            ` <h1><a href="#">KeyTransfer</a></h1>
+            {% for object in key_transfer_objects %}
+                <a class=" list-group-item list-group-item-action"
+                   href="#">
+                    <li>{{ object }} </li>
+                </a>
+                {% empty %}
+                <li>No key-transfer yet.</li>
+            {% endfor %}`
+
+        </div>
+    </div>
+
+{% endblock %}

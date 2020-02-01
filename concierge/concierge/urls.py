@@ -16,16 +16,34 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import health_check, index, api_serializer, KeyTransferView, key_transfer_created
+from .views import health_check, api_serializer, KeyTransferView, form_accepted, PersonFormView, \
+    PersonListView, PersonDetailView, IndexView
 
 # from .views import healthcheck
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('healthcheck/', health_check, name='health_check'),
-    path('', index, name='index'),
-    path('api/<str:object_type>/<int:object_id>', api_serializer, name='api'),
-    path('key-transfer', KeyTransferView.as_view(), name='form'),
-    path('thanks/', key_transfer_created, name='key-transfer-created')
-    # path('', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('', IndexView.as_view(), name='index'),
+    path('api/<str:object_type>/<int:object_id>', api_serializer, name='api-serializer'),
+
+    path('person-form/', PersonFormView.as_view(), name='person-form'),
+    path('person-list/', PersonListView.as_view(), name='person-list'),
+    path('person-detail/<int:pk>', PersonDetailView.as_view(), name='person-detail'),
+
+    # TODO
+    # path('apartment-form/', ApartmentFormView.as_view(), name='apartment-form'),
+    # path('apartment-list/', ApartmentListView.as_view(), name='apartment-list'),
+    # path('apartment-detail/<int:pk>', ApartmentDetailView.as_view(), name='apartment-detail'),
+    #
+    # path('key-transfer-form/', KeyTransferFormView.as_view(), name='key-transfer-form'),
+    # path('key-transfer-list/', KeyTransferListView.as_view(), name='key-transfer-list'),
+    # path('key-transfer-detail/<int:pk>', KeyTransferDetailView.as_view(), name='key-transfer-detail'),
+    #
+    # path('key-form/', KeyFormView.as_view(), name='key-form'),
+    # path('key-list/', KeyListView.as_view(), name='key-list'),
+    # path('key-detail/<int:pk>', KeyDetailView.as_view(), name='person-detail'),
+
+    path('form-accepted/', form_accepted, name='form-accepted'),
+    path('key-transfer-form/', KeyTransferView.as_view(), name='key-transfer-form'),
 ]

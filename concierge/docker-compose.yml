@@ -45,4 +45,4 @@ services:
 #      timeout: 1s
 #      retries: 2
 
-#docker-compose -d up --build
+#docker-compose up -d --build

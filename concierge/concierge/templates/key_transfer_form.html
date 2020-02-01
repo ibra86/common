@@ -5,13 +5,19 @@
     <title>Title</title>
 </head>
 <body>
+{#<form method="post">{% csrf_token %}#}
+{#    <label>Please enter person name</label>#}
+{#    <input type="text" name="person_name">#}
+{#    <label>Please enter key id</label>#}
+{#    <input type="text" name="key_id">#}
+{#    <input type="submit"/>#}
+{#    <input type="reset"/>#}
+{#</form>#}
+
 <form method="post">{% csrf_token %}
-    <label>Please enter person name</label>
-    <input type="text" name="person_name">
-    <label>Please enter key id</label>
-    <input type="text" name="key_id">
-    <input type="submit"/>
-    <input type="reset"/>
+    {{ form.as_p }}
+    <input type="submit" value="Save">
 </form>
+
 </body>
 </html>

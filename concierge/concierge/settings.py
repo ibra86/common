@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'concierge'
+    'concierge',
 ]
+# INSTALLED_APPS += ['tastypie']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,30 +77,16 @@ WSGI_APPLICATION = 'concierge.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-def get_env_value(env_variable):
-    try:
-        return os.environ[env_variable]
-    except KeyError:
-        error_msg = f'Set the {env_variable} environment variable'
-        raise ImproperlyConfigured(error_msg)
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': get_env_value('DATABASE_HOST'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
         'USER': 'django',
         'PASSWORD': 'django',
         'NAME': 'concierge',
-        'PORT': get_env_value('DATABASE_PORT'),
+        'PORT': os.environ.get('DATABASE_PORT', '5431'),
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
