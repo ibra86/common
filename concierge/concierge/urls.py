@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from .views import health_check, api_serializer, KeyTransferView, form_accepted, PersonFormView, \
     PersonListView, PersonDetailView, IndexView
@@ -24,11 +24,13 @@ from .views import health_check, api_serializer, KeyTransferView, form_accepted,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('healthcheck/', health_check, name='health_check'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', IndexView.as_view(), name='index'),
     path('api/<str:object_type>/<int:object_id>', api_serializer, name='api-serializer'),
 
     path('person-form/', PersonFormView.as_view(), name='person-form'),
     path('person-list/', PersonListView.as_view(), name='person-list'),
+    # path('person-list/', cache_page(CACHE_TTL)(PersonListView.as_view()), name='person-list'),
     path('person-detail/<int:pk>', PersonDetailView.as_view(), name='person-detail'),
 
     # TODO
@@ -46,4 +48,5 @@ urlpatterns = [
 
     path('form-accepted/', form_accepted, name='form-accepted'),
     path('key-transfer-form/', KeyTransferView.as_view(), name='key-transfer-form'),
+
 ]

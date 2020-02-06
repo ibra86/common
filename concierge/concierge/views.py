@@ -1,9 +1,12 @@
 from http import HTTPStatus
 
+from django.contrib.auth.decorators import permission_required
 from django.core import serializers
 from django.core.serializers import SerializerDoesNotExist
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.utils import timezone
+from django.utils.decorators import method_decorator
 from django.views.generic import FormView, ListView, DetailView, TemplateView
 
 from concierge import models
@@ -29,12 +32,12 @@ class IndexView(TemplateView):
         return context
 
 
-def key_transfer_created(request):
-    return HttpResponse('Key transfer was created')
+# def key_transfer_created(request):
+#     return HttpResponse('Key transfer was created')
 
-
+# @cache_page(CACHE_TTL)
 def form_accepted(request):
-    return HttpResponse('Form successfully accepted')
+    return render(request=request, template_name='form-accepted.html', context=None)
 
 
 def api_serializer(request, object_type, object_id):
@@ -93,3 +96,7 @@ class KeyTransferView(FormView):
 
     def form_invalid(self, form):
         return HttpResponse(status=HTTPStatus.BAD_REQUEST)
+
+    @method_decorator(permission_required('concierge.view_keytransfer'))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
