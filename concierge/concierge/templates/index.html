@@ -39,7 +39,7 @@
                 <li>No key yet.</li>
             {% endfor %}`
 
-            ` <h1><a href="#">KeyTransfer</a></h1>
+            ` <h1><a href={% url 'key-transfer-form' %}>KeyTransfer</a></h1>
             {% for object in key_transfer_objects %}
                 <a class=" list-group-item list-group-item-action"
                    href="#">
