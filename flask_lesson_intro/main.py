@@ -10,7 +10,7 @@ entity_list = [d.get('title') for d in data]
 
 @app.route('/')
 def get_home_page():
-    return render_template("home.html", entity_list=entity_list)
+    return render_template("index.html", entity_list=entity_list)
 
 
 @app.route('/<entity>')

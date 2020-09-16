@@ -1,0 +1,37 @@
+#images {
+    text-align: center;
+}
+
+*:focus {
+    outline: 0;
+}
+
+.cust-size {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.error-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.error-actions {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.error-actions .btn {
+    margin-right: 10px;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.cust-size {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 5px;
+}
